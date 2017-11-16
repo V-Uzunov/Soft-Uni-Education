@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SalesDetailModel>
+
+@{
+    ViewData["Title"] = "More Details About Sale";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>
+            Car Make
+        </th>
+        <th>
+            Car Model
+        </th>
+        <th>
+            Customer Name
+        </th>
+        <td>
+            Action
+        </td>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var sale in Model)
+    {
+        <tr>
+            <th>
+                @sale.Car.Make
+            </th>
+            <th>
+                @sale.Car.Model
+            </th>
+            <th>
+                @sale.CustomerName
+            </th>
+        <th class="text-center">
+        <a class="btn btn-sm btn-success" href="/sales/all">Back</a>
+        </th>
+        </tr>
+    }
+    </tbody>
+</table>

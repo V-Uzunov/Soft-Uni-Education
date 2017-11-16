@@ -1,0 +1,15 @@
+﻿@model AllSuppliers
+
+@{
+    ViewData["Title"] = "Edit Supplier";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <div class="row">
+        @Html.Partial("_SuppliersForm", Model)
+    </div>
+</form>
+
+

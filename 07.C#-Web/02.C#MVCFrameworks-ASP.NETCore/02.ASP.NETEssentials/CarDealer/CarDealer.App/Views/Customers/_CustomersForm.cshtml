@@ -1,0 +1,21 @@
+﻿@model CustomerModel
+
+<div class="col-md-4">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="BirthDate"></label>
+        <input asp-for="BirthDate" class="form-control" />
+        <span asp-validation-for="BirthDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input asp-for="IsYoungDriver"  />
+        <label asp-for="IsYoungDriver"></label>
+        <span asp-validation-for="IsYoungDriver" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-success">Save Customer</button>
+</div>
+

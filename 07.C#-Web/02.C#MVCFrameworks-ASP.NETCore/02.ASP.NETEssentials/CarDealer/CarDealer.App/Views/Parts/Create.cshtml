@@ -1,0 +1,12 @@
+﻿@model PartsModel
+@{
+    ViewData["Title"] = "Create Part";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <div class="row">
+        @Html.Partial("_PartsModel", Model)
+    </div>
+</form>

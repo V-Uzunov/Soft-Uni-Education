@@ -1,0 +1,69 @@
+﻿@model LogPageModel
+
+@{
+    ViewData["Title"] = "All Logs";
+}
+
+<h2>
+    @ViewData["Title"]
+</h2>
+
+<div class="form-group row">
+    <div class="col-sm-2">
+        <input class="form-control" asp="Search" name="search" placeholder="Username..." />
+    </div>
+    <input type="submit" value="Search Logs" class="btn btn-info" />
+</div>
+
+<div class="text-right">
+    <a class="btn btn-danger" href="/logs/clear">Clear All Logs</a>
+</div>
+
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>
+            User
+        </th>
+        <th>
+            Operation
+        </th>
+        <th>
+            Modified Table
+        </th>
+        <th>
+            Time
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var log in Model.LogModels)
+    {
+        <tr>
+            <th>
+                @log.User
+            </th>
+            <th>
+                @log.Operation
+            </th>
+            <th>
+                @log.ModifiedTable
+            </th>
+            <th>
+                @log.Time
+            </th>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<ul class="pagination">
+    <li class="page-item">
+        <a class="page-link" href="/logs/all?page=@Model.PreviousPage">Previous</a>
+    </li>
+    @for (int i = 1; i <= Model.TotalPages; i++)
+    {
+        <li class="page-item @(Model.CurrentPage == i ? "active" : string.Empty) "><a class="page-link" href="/logs/all?page=@i">@i</a></li>
+    }
+    <li class="page-item"><a class="page-link" href="/logs/all?page=@Model.NextPage">Next</a></li>
+</ul>

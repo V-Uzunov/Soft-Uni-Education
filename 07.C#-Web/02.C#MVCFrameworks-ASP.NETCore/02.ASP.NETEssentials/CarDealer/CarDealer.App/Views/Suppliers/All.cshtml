@@ -1,0 +1,42 @@
+﻿@model IEnumerable<AllSuppliers>
+
+@{
+    ViewData["Title"] = "All Suppliers";
+}
+
+<h2>@ViewData["Title"]
+    <a class="btn btn-primary" href="/suppliers/create">New Supplier</a>
+    </h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Importer
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var supp in Model)
+        {
+            <tr>
+                <th>
+                    @supp.Name
+                </th>
+                <th>
+                    @(supp.IsImporter ? "Yes" : "No")
+                </th>
+                <th class="text-center">
+                    <a class="btn btn-sm btn-warning" href="/suppliers/edit/@supp.Id">Edit</a>
+                    <a class="btn btn-sm btn-danger" href="/suppliers/delete/@supp.Id">Delete</a>
+                </th>
+            </tr>
+        }
+    </tbody>
+</table>

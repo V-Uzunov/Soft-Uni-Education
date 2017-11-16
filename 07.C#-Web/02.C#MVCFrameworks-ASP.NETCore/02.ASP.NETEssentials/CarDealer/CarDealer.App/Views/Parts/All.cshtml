@@ -1,0 +1,66 @@
+﻿@model PartsPageListingModel
+
+@{
+    ViewData["Title"] = "All Parts";
+}
+
+<h2>@ViewData["Title"]
+    <a class="btn btn-primary btn-sm" href="/parts/create">Add Parts</a>
+    </h2>
+
+
+
+<ul class="pagination">
+    <li class="page-item"><a class="page-link" href="/parts/all?page=@Model.PreviousPage">Previous</a></li>
+    @for (int i = 1; i <= Model.TotalPages; i++)
+    {
+        <li class="page-item @(Model.CurrentPage == i ? "active" : string.Empty) "><a class="page-link" href="/parts/all?page=@i">@i</a></li>
+    }
+    <li class="page-item"><a class="page-link" href="/parts/all?page=@Model.NextPage">Next</a></li>
+</ul>
+
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Supplier Name
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var part in Model.Parts)
+    {
+        <tr>
+            <th>
+                @part.Name
+            </th>
+            <th>
+                $@part.Price.ToString("F2")
+            </th>
+            <th>
+                @part.Quantity
+            </th>
+            <th>
+                @part.SupplierName
+            </th>
+            <th class="text-center">
+                <a class="btn btn-sm btn-warning" href="/parts/edit/@part.Id">Edit</a>
+                <a class="btn btn-sm btn-danger" href="/parts/delete/@part.Id">Delete</a>
+            </th>
+        </tr>
+    }
+    </tbody>
+</table>
+

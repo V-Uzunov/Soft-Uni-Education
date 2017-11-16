@@ -1,0 +1,50 @@
+﻿@model CarsListingModel
+
+@{
+    ViewData["Title"] = "All Cars";
+}
+
+<h2>@ViewData["Title"]
+    <a class="btn btn-primary btn-sm" href="/cars/create">Add Car</a>
+    </h2>
+
+<ul class="pagination">
+    <li class="page-item"><a class="page-link" href="/cars/all?page=@Model.PreviousPage">Previous</a></li>
+    @for (int i = 1; i <= Model.TotalPages; i++)
+    {
+        <li class="page-item @(Model.CurrentPage == i ? "active" : string.Empty) "><a class="page-link" href="/cars/all?page=@i">@i</a></li>
+    }
+    <li class="page-item"><a class="page-link" href="/cars/all?page=@Model.NextPage">Next</a></li>
+</ul>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Make
+            </th>
+            <th>
+                Model
+            </th>
+            <th>
+                Travelling distance
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model.Cars)
+        {
+            <tr>
+                <th>
+                    <a href="/cars/@car.Make">@car.Make</a>
+                </th>
+                <th>
+                    @car.Model
+                </th>
+                <th>
+                    @car.TravelledDistance KM
+                </th>
+            </tr>
+        }
+    </tbody>
+</table>

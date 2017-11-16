@@ -1,0 +1,12 @@
+﻿@model CarByMake
+
+@{
+    ViewData["Title"] = "Create Car";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post" >
+    @Html.Partial("_CreateEditCarModel", Model)
+</form>
+

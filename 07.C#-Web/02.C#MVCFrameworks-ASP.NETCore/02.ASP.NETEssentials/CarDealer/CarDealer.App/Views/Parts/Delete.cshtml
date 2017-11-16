@@ -1,0 +1,35 @@
+﻿@model ListAllParts
+
+@{
+    ViewData["Title"] = "Delete Parts";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post" >
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input disabled="disabled" asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price"></label>
+                <input disabled="disabled" asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quantity"></label>
+                <input disabled="disabled" asp-for="Quantity" class="form-control" min="1"/>
+                <span asp-validation-for="Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SupplierName"></label>
+                <input disabled="disabled" asp-for="SupplierName" class="form-control">
+                <span asp-validation-for="SupplierName" class="text-danger"></span>
+            </div>
+            <button type="submit"  class="btn btn-danger">Delete Part</button>
+        </div>
+    </div>
+</form>
