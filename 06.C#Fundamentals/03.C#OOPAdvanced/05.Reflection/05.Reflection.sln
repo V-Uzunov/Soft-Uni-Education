@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.Stealer", "01.Stealer\01.Stealer.csproj", "{3D753725-F3DF-489A-9183-2AE50C77220E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.Reflection-Lab", "01.Reflection-Lab", "{0661B046-0617-4E49-B0DE-ED92BA8C98DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.Reflection-Exercise", "02.Reflection-Exercise", "{C631599B-C1FC-4FC5-ADFA-EE347736769B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01HarestingFields", "01.HarestingFields\01HarestingFields.csproj", "{7F012308-C208-4E3D-97AA-1AB63A28AEE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03BarracksFactory", "03.BarracksFactory\03BarracksFactory.csproj", "{6B9565B7-DD7A-43D0-9F1F-F5DFB1EC09F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02BlackBoxInteger", "02.BlackBoxInteger\02BlackBoxInteger.csproj", "{56403F2F-210D-4F01-AC6C-A31B8CBB305B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D753725-F3DF-489A-9183-2AE50C77220E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D753725-F3DF-489A-9183-2AE50C77220E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D753725-F3DF-489A-9183-2AE50C77220E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D753725-F3DF-489A-9183-2AE50C77220E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F012308-C208-4E3D-97AA-1AB63A28AEE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F012308-C208-4E3D-97AA-1AB63A28AEE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F012308-C208-4E3D-97AA-1AB63A28AEE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F012308-C208-4E3D-97AA-1AB63A28AEE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B9565B7-DD7A-43D0-9F1F-F5DFB1EC09F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B9565B7-DD7A-43D0-9F1F-F5DFB1EC09F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B9565B7-DD7A-43D0-9F1F-F5DFB1EC09F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B9565B7-DD7A-43D0-9F1F-F5DFB1EC09F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56403F2F-210D-4F01-AC6C-A31B8CBB305B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56403F2F-210D-4F01-AC6C-A31B8CBB305B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56403F2F-210D-4F01-AC6C-A31B8CBB305B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56403F2F-210D-4F01-AC6C-A31B8CBB305B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3D753725-F3DF-489A-9183-2AE50C77220E} = {0661B046-0617-4E49-B0DE-ED92BA8C98DE}
+		{7F012308-C208-4E3D-97AA-1AB63A28AEE6} = {C631599B-C1FC-4FC5-ADFA-EE347736769B}
+		{6B9565B7-DD7A-43D0-9F1F-F5DFB1EC09F3} = {C631599B-C1FC-4FC5-ADFA-EE347736769B}
+		{56403F2F-210D-4F01-AC6C-A31B8CBB305B} = {C631599B-C1FC-4FC5-ADFA-EE347736769B}
+	EndGlobalSection
+EndGlobal
