@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.OOPIntro", "01.OOPIntro\01.OOPIntro.csproj", "{B8016B6F-28BD-448E-87A6-C48CCD24D532}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.CodeFirst", "02.CodeFirst\02.CodeFirst.csproj", "{24ACF374-C4FE-4035-9724-0AD6E660CBF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.Users", "03.Users\03.Users.csproj", "{2D81C6A0-B022-4035-96AE-B948BF72F5BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8016B6F-28BD-448E-87A6-C48CCD24D532}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8016B6F-28BD-448E-87A6-C48CCD24D532}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8016B6F-28BD-448E-87A6-C48CCD24D532}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8016B6F-28BD-448E-87A6-C48CCD24D532}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24ACF374-C4FE-4035-9724-0AD6E660CBF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24ACF374-C4FE-4035-9724-0AD6E660CBF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24ACF374-C4FE-4035-9724-0AD6E660CBF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24ACF374-C4FE-4035-9724-0AD6E660CBF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D81C6A0-B022-4035-96AE-B948BF72F5BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D81C6A0-B022-4035-96AE-B948BF72F5BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D81C6A0-B022-4035-96AE-B948BF72F5BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D81C6A0-B022-4035-96AE-B948BF72F5BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
