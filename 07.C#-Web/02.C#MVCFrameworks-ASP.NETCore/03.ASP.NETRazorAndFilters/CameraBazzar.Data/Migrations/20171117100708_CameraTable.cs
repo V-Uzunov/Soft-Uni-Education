@@ -163,7 +163,7 @@ namespace CameraBazaar.Data.Migrations
                     Description = table.Column<string>(maxLength: 6000, nullable: false),
                     ImageUrl = table.Column<string>(maxLength: 2000, nullable: false),
                     IsFullFrame = table.Column<bool>(nullable: false),
-                    LIsLightMetering = table.Column<int>(nullable: false),
+                    LightMetering = table.Column<int>(nullable: false),
                     Make = table.Column<int>(nullable: false),
                     MaxISO = table.Column<int>(nullable: false),
                     MaxShutterSpeed = table.Column<int>(nullable: false),

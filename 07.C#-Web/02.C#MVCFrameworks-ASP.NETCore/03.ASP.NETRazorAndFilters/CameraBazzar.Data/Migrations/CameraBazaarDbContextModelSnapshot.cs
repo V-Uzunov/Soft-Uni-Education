@@ -36,7 +36,7 @@ namespace CameraBazaar.Data.Migrations
 
                     b.Property<bool>("IsFullFrame");
 
-                    b.Property<int>("LIsLightMetering");
+                    b.Property<int>("LightMetering");
 
                     b.Property<int>("Make");
 

@@ -7,6 +7,7 @@
     using Services.Interfaces;
     using Services.Models.Cameras;
 
+    [Route("cameras")]
     public class CamerasController : Controller
     {
         private readonly UserManager<User> userManager;
@@ -19,10 +20,12 @@
         }
 
         [Authorize]
+        [Route(nameof(Add))]
         public IActionResult Add() => View();
 
         [Authorize]
         [HttpPost]
+        [Route(nameof(Add))]
         public IActionResult Add(AddCameraViewModel cameraModel)
         {
             if (!ModelState.IsValid)
@@ -48,5 +51,13 @@
 
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
+
+        [Route(nameof(All))]
+        public IActionResult All()
+            => View(this.cameras.AllCameras());
+
+        [Route("{id}")]
+        public IActionResult Details(int id)
+            => this.View(this.cameras.Details(id));
     }
 }

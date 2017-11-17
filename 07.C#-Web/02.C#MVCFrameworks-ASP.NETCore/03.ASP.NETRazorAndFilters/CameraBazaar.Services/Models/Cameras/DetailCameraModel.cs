@@ -1,8 +1,9 @@
-﻿namespace CameraBazaar.Data.Models
+﻿namespace CameraBazaar.Services.Models.Cameras
 {
     using System.ComponentModel.DataAnnotations;
+    using Data.Models;
 
-    public class Camera
+    public class DetailCameraModel
     {
         public int Id { get; set; }
 
@@ -46,7 +47,5 @@
         public string ImageUrl { get; set; }
 
         public string UserId { get; set; }
-
-        public User User { get; set; }
     }
 }

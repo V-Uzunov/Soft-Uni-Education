@@ -17,10 +17,10 @@
                 .Select(t => new
                 {
                     Interface = t.GetInterface($"I{t.Name}"),
-                    Implementatio = t
+                    Implementation = t
                 })
                 .ToList()
-                .ForEach(s => services.AddTransient(s.Interface, s.Implementatio));
+                .ForEach(s => services.AddTransient(s.Interface, s.Implementation));
 
             return services;
         }

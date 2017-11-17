@@ -12,7 +12,7 @@ using System;
 namespace CameraBazaar.Data.Migrations
 {
     [DbContext(typeof(CameraBazaarDbContext))]
-    [Migration("20171116145156_CameraTable")]
+    [Migration("20171117100708_CameraTable")]
     partial class CameraTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,7 +37,7 @@ namespace CameraBazaar.Data.Migrations
 
                     b.Property<bool>("IsFullFrame");
 
-                    b.Property<int>("LIsLightMetering");
+                    b.Property<int>("LightMetering");
 
                     b.Property<int>("Make");
 
