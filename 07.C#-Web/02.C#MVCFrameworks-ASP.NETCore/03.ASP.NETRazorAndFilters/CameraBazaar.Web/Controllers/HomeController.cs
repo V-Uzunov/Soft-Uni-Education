@@ -3,7 +3,9 @@
     using Microsoft.AspNetCore.Mvc;
     using Models;
     using System.Diagnostics;
+    using Infrastructure.Filters;
 
+    [TimeMeasures]
     public class HomeController : Controller
     {
         public IActionResult Index()

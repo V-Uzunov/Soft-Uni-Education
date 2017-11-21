@@ -18,7 +18,8 @@
 
         public void Create(
             CameraMake make,
-            string model, decimal price,
+            string model, 
+            decimal price,
             int quantity,
             int minShutterSpeed,
             int maxShutterSpeed,
@@ -35,6 +36,7 @@
             {
                 Make = make,
                 Model = model,
+                Price = price,
                 Quantity = quantity,
                 MinShutterSpeed = minShutterSpeed,
                 MaxShutterSpeed = maxShutterSpeed,
@@ -74,6 +76,7 @@
                 {
                     Make = c.Make,
                     Model = c.Model,
+                    Price = c.Price,
                     Quantity = c.Quantity,
                     MinShutterSpeed = c.MinShutterSpeed,
                     MaxShutterSpeed = c.MaxShutterSpeed,
@@ -84,8 +87,8 @@
                     LightMetering = c.LightMetering,
                     Description = c.Description,
                     ImageUrl = c.ImageUrl,
+                    UserName =c.User.UserName,
                     UserId = c.UserId
-
                 })
                 .FirstOrDefault();
 

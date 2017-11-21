@@ -12,8 +12,8 @@ using System;
 namespace CameraBazaar.Data.Migrations
 {
     [DbContext(typeof(CameraBazaarDbContext))]
-    [Migration("20171117100708_CameraTable")]
-    partial class CameraTable
+    [Migration("20171121101933_AdminRole")]
+    partial class AdminRole
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

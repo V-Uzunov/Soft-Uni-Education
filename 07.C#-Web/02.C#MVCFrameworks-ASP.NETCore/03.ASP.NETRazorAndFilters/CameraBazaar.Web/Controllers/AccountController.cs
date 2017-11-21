@@ -10,8 +10,11 @@
     using System;
     using System.Security.Claims;
     using System.Threading.Tasks;
+    using Infrastructure.Filters;
+    using Infrastructure.GlobalConstants;
 
     [Authorize]
+    [TimeMeasures]
     [Route("[controller]/[action]")]
     public class AccountController : Controller
     {
@@ -218,7 +221,11 @@
                     Email = model.Email,
                     PhoneNumber = model.Phone
                 };
+                
                 var result = await _userManager.CreateAsync(user, model.Password);
+
+                //Add every User to Logged In Role
+                await _userManager.AddToRoleAsync(user, GlobalConstants.LoggedInUser);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");

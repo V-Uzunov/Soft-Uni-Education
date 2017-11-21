@@ -4,4 +4,27 @@
 }
 
 <h2>@ViewData["Title"]</h2>
-
+<div class="container">
+    <p><img src="@Model.ImageUrl" class="img-thumbnail col-sm-2 col-md-2"></p>
+</div>
+<br />
+<div>
+    @if (Model.Quantity > 0)
+    {
+        <p><b>@Model.Make @Model.Model - $@Model.Price <span style="color: green">IN STOCK</span></b></p>
+    }
+    else
+    {
+        <p>@Model.Make @Model.Model - $@Model.Price <span style="color: red">OUT OF STOCK</span></p>
+    }
+    
+    <p><b>Seller Username:</b>@Model.UserName</p>
+    <p><b>Is Full Frame:</b> @(Model.IsFullFrame ? "Yes" : "No")</p>
+    <p><b>Min Shutter Speed:</b> @Model.MinShutterSpeed
+    <p><b>Max Shutter Speed:</b> 1/@Model.MaxShutterSpeed</p>
+    <p><b>Min ISO:</b> @Model.MinISO </p>
+    <p><b>Max ISO:</b> @Model.MaxISO </p>
+    <p><b>Video Resolution:</b> @Model.VideoResolution</p>
+    <p><b>Light Metering:</b> @Model.LightMetering</p>
+    <p><b>Description:</b> @Model.Description</p>
+</div>

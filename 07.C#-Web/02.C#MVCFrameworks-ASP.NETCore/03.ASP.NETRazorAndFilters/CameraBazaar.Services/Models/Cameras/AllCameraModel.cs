@@ -6,7 +6,7 @@
     public class AllCameraModel
     {
         public int Id { get; set; }
-
+        
         public CameraMake Make { get; set; }
 
         [Required]

@@ -1,6 +1,6 @@
 ﻿namespace CameraBazaar.Data
 {
-    using CameraBazaar.Data.Models;
+    using Models;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 

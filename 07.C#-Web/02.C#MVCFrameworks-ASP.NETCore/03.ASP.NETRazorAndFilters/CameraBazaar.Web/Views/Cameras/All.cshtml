@@ -6,3 +6,60 @@
 
 <h2>@ViewData["Title"]</h2>
 
+<table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>
+            Image
+        </th>
+        <th>
+            Make
+        </th>
+        <th>
+            Model
+        </th>
+        <th>
+            Price
+        </th>
+
+        <th>
+            Quantity
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var cam in Model)
+    {
+        <tr>
+            <th>
+                <img src="@cam.ImageUrl"  class="img-thumbnail col-xs-18 col-sm-6 col-md-3">
+            </th>
+            <th>
+                @cam.Make
+            </th>
+            <th>
+                @cam.Model
+            </th>
+            <th>
+                $@cam.Price.ToString("F2")
+            </th>
+            <th>
+                @if (cam.Quantity>0)
+                {
+                    <h3 style="color: green">IN STOCK</h3>
+                }
+                else
+                {
+                    <h3 style="color: red">OUT OF STOCK</h3>
+                }
+            </th>
+            <th class="text-center">
+                <a href="/cameras/details/@cam.Id">Details</a>
+            </th>
+        </tr>
+    }
+    </tbody>
+</table>

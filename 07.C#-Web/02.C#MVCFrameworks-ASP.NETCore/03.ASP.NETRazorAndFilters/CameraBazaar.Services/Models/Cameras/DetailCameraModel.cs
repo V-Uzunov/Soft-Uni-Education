@@ -46,6 +46,8 @@
         [MaxLength(2000)]
         public string ImageUrl { get; set; }
 
+        public string UserName { get; set; }
+
         public string UserId { get; set; }
     }
 }

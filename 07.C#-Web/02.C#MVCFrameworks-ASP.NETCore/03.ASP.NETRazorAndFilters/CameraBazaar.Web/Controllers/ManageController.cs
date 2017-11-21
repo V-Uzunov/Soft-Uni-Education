@@ -12,8 +12,10 @@
     using System.Text;
     using System.Text.Encodings.Web;
     using System.Threading.Tasks;
+    using Infrastructure.Filters;
 
     [Authorize]
+    [TimeMeasures]
     [Route("[controller]/[action]")]
     public class ManageController : Controller
     {

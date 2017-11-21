@@ -1,6 +1,7 @@
 ﻿namespace CameraBazaar.Web.Controllers
 {
     using Data.Models;
+    using Infrastructure.Filters;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
@@ -8,6 +9,8 @@
     using Services.Models.Cameras;
 
     [Route("cameras")]
+    [Log]
+    [TimeMeasures]
     public class CamerasController : Controller
     {
         private readonly UserManager<User> userManager;
@@ -24,6 +27,7 @@
         public IActionResult Add() => View();
 
         [Authorize]
+        [ValidateAntiForgeryToken]
         [HttpPost]
         [Route(nameof(Add))]
         public IActionResult Add(AddCameraViewModel cameraModel)
@@ -52,11 +56,13 @@
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
+        [Authorize]
         [Route(nameof(All))]
         public IActionResult All()
             => View(this.cameras.AllCameras());
 
-        [Route("{id}")]
+        [Authorize]
+        [Route(nameof(Details) + "/{id}")]
         public IActionResult Details(int id)
             => this.View(this.cameras.Details(id));
     }

@@ -3,8 +3,10 @@
     using Data;
     using Data.Models;
     using Infrastructure.Extensions;
+    using Microsoft.AspNetCore.Authentication.Facebook;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
@@ -35,6 +37,13 @@
                 })
                 .AddEntityFrameworkStores<CameraBazaarDbContext>()
                 .AddDefaultTokenProviders();
+
+
+            //services.AddAuthentication().AddFacebook(facebookOptions =>
+            //{
+            //    facebookOptions.AppId = "1234567891234";
+            //    facebookOptions.AppSecret = "1234567891234";
+            //});
 
             services.AddDomainServices();
 
