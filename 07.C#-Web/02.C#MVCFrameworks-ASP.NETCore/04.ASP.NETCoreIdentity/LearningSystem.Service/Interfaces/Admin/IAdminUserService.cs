@@ -1,4 +1,4 @@
-﻿namespace LearningSystem.Service.Interfaces
+﻿namespace LearningSystem.Service.Interfaces.Admin
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;

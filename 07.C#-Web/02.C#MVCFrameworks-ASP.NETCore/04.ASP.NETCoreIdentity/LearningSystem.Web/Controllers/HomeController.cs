@@ -8,26 +8,20 @@ using LearningSystem.Web.Models;
 
 namespace LearningSystem.Web.Controllers
 {
+    using Service.Interfaces.Course;
+
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly ICourseService courses;
+
+        public HomeController(ICourseService courses)
         {
-            return View();
+            this.courses = courses;
         }
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
+        public async Task<IActionResult> Index()
+            => View(await this.courses.ActiveCoursesAsync());
+        
 
         public IActionResult Error()
         {

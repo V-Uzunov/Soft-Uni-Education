@@ -1,14 +1,12 @@
-﻿namespace LearningSystem.Service.Implementations
+﻿namespace LearningSystem.Service.Implementations.Admin
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
     using AutoMapper.QueryableExtensions;
     using Data;
-    using Interfaces;
+    using Interfaces.Admin;
     using Microsoft.EntityFrameworkCore;
-    using Models;
     using Models.Admin;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     public class AdminUserService : IAdminUserService
     {

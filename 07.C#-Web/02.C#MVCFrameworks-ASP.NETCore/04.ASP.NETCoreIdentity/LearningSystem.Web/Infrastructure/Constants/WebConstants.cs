@@ -7,6 +7,9 @@
         public const string BlogAuthorRoleName = "Blog Author";
 
         public const string AdminArea = "Admin";
+        public const string BlogArea = "Blog";
+
+        public const int PageSize = 6;
 
         public const string TempDataSuccessMessage = "SuccessMessage";
     }

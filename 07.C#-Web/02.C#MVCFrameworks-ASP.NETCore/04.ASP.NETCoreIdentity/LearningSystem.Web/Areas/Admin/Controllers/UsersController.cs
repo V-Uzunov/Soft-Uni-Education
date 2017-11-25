@@ -1,14 +1,14 @@
 ﻿namespace LearningSystem.Web.Areas.Admin.Controllers
 {
-    using System.Linq;
-    using System.Threading.Tasks;
     using Data.Models;
     using Infrastructure.Extensions;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Models.Users;
-    using Service.Interfaces;
+    using Service.Interfaces.Admin;
+    using System.Linq;
+    using System.Threading.Tasks;
 
     public class UsersController : AdminBaseController
     {

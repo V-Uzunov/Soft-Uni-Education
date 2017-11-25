@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
+    <PackageReference Include="HtmlSanitizer" Version="4.0.181" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="2.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="2.0.1" />
