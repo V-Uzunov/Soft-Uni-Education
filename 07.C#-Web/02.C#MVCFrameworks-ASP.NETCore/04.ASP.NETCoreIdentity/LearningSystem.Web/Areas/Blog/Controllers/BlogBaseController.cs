@@ -4,8 +4,8 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
+    [Authorize]
     [Area(WebConstants.BlogArea)]
-    [Authorize(Roles = WebConstants.BlogAuthorRoleName)]
     public abstract class BlogBaseController : Controller
     {
     }

@@ -42,8 +42,7 @@
 
             return View(await this.articles.ByIdAsync(id));
         }
-
-        [AllowAnonymous]
+        
         public async Task<IActionResult> Index(int page = 1)
             => View(new ArticlesListingPageModel
             {
@@ -53,6 +52,7 @@
             });
 
         [HttpPost]
+        [Authorize(Roles = WebConstants.BlogAuthorRoleName)]
         public async Task<IActionResult> Create(BlogArticlesViewModel model)
         {
             if (!ModelState.IsValid)

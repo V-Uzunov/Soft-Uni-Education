@@ -5,6 +5,10 @@
     using Interfaces.Admin;
     using System;
     using System.Threading.Tasks;
+    using LearningSystem.Service.Models.Course;
+    using AutoMapper.QueryableExtensions;
+    using Microsoft.EntityFrameworkCore;
+    using System.Linq;
 
     public class AdminCourseService : IAdminCourseService
     {
@@ -29,5 +33,6 @@
             await this.db.AddAsync(course);
             await this.db.SaveChangesAsync();
         }
+        
     }
 }

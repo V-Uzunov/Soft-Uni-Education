@@ -1,15 +1,15 @@
 ﻿namespace LearningSystem.Service.Implementations.Blog
 {
+    using AutoMapper.QueryableExtensions;
     using Data;
     using Data.Models;
     using Interfaces.Blog;
+    using Microsoft.EntityFrameworkCore;
     using Models.Blog;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using AutoMapper.QueryableExtensions;
-    using Microsoft.EntityFrameworkCore;
 
     public class BlogArticleService : IBlogArticleService
     {

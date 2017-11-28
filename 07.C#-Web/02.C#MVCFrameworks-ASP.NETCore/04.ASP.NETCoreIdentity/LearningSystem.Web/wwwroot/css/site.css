@@ -28,25 +28,26 @@
 
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
+/* Hide captions */
+.carousel-caption {
+    display: none;
+}
 
 .article-list li{
-    margin-bottom: 25px
+    margin-bottom: 25px;
 }
 
 
 .pagination li.disabled a {
-    pointer-events: none
+    pointer-events: none;
 }
 
 .home-jumbotron {
-    margin-top: 50px
+    margin-top: 50px;
 }
 
-.home-page .img-responsive {
+
+.img-responsive {
     height: 200px !important;
 }
 }

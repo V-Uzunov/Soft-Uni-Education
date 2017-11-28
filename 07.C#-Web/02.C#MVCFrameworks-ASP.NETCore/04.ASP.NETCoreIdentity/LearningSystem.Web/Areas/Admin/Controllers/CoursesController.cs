@@ -3,6 +3,7 @@
     using Data.Models;
     using Infrastructure.Constants;
     using Infrastructure.Extensions;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
@@ -25,7 +26,7 @@
             this.courses = courses;
             this.userManager = userManager;
         }
-
+        
         public async Task<IActionResult> Create()
             => this.View(new AdminCoursesModel
             {

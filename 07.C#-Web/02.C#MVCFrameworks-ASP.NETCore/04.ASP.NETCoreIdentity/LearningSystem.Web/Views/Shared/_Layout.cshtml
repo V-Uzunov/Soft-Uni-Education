@@ -40,8 +40,8 @@
                     @if (User.IsInRole(WebConstants.BlogAuthorRoleName))
                     {
                         <li><a asp-area="Blog" asp-controller="Articles" asp-action="Create">Publish Article</a></li>
-
                     }
+                    <li><a asp-area="Blog" asp-controller="Articles" asp-action="Index">Articles</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>

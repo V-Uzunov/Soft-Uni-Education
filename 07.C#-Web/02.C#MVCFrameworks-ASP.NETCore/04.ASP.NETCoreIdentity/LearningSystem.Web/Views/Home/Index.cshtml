@@ -8,13 +8,13 @@
     <h1 class="text-center">Welcome to our Learning System!</h1>
 </div>
 
-<div class="row home-page">
+<div class="row">
     @foreach (var course in Model)
     {
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">@course.Name</h3>
+                    <h3 class="panel-title"><a asp-controller="Courses" asp-action="Details" asp-route-id="@course.Id">@course.Name</a></h3>
                 </div>
                 <div class="panel-body">
                     <img class="img-responsive" width="200" src="http://thecatapi.com/api/images/get?format=src&type=gif&guid=@(Guid.NewGuid())">
