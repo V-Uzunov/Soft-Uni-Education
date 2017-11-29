@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CourseListingViewModel>
+﻿@model SearchIndexViewModel
 
 @{
     ViewData["Title"] = "Active Courses";
@@ -9,7 +9,26 @@
 </div>
 
 <div class="row">
-    @foreach (var course in Model)
+    <form asp-action="Search">
+        <div class="col-md-6">
+            <input asp-for="SearchText" class="form-control" placeholder="Search..."/>
+        </div>
+        <div class="col-md-2">
+            <input asp-for="IsSearchingInCourses"/>
+            <label asp-for="IsSearchingInCourses"></label>
+        </div>
+        <div class="col-md-2">
+            <input asp-for="IsSearchingInCourses" />
+            <label asp-for="IsSearchingInCourses"></label>
+        </div>
+        <div class="col-md-2">
+            <input type="submit" class="btn btn-default pull-right" value="Search"/>
+        </div>
+    </form>
+</div>
+
+<div class="row">
+    @foreach (var course in Model.Courses)
     {
         <div class="col-md-4">
             <div class="panel panel-default">

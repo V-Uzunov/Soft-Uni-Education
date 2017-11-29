@@ -20,12 +20,12 @@
             this.db = db;
         }
 
-        public async Task<IEnumerable<CourseListingViewModel>> ActiveCoursesAsync()
+        public async Task<IEnumerable<CourseListingServiceModel>> ActiveCoursesAsync()
             => await this.db
                 .Courses
                 .OrderByDescending(x=> x.Id)
                 .Where(c=> c.StartDate >= DateTime.UtcNow)
-                .ProjectTo<CourseListingViewModel>()
+                .ProjectTo<CourseListingServiceModel>()
                 .ToListAsync();
 
         public async Task<CourseDetailsServiceModel> Details(int id)
@@ -34,6 +34,14 @@
             .Where(c => c.Id == id)
             .ProjectTo<CourseDetailsServiceModel>()
             .FirstOrDefaultAsync();
+
+        public async Task<IEnumerable<CourseListingServiceModel>> FindAsync(string search)
+            => await this.db
+            .Courses
+            .OrderBy(c => c.Name)
+            .Where(c => c.Name.ToLower().Contains(search.ToLower()))
+            .ProjectTo<CourseListingServiceModel>()
+            .ToListAsync();
 
         public async Task<bool> IsSignInCourseAsync(int courseId, string userId)
             => await this.db

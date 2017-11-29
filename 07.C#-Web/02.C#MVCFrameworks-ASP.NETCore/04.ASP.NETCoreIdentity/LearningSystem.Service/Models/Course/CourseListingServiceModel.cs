@@ -4,7 +4,7 @@
     using System.ComponentModel.DataAnnotations;
     using Data.Constants;
 
-    public class CourseListingViewModel
+    public class CourseListingServiceModel
     {
         public int Id { get; set; }
 

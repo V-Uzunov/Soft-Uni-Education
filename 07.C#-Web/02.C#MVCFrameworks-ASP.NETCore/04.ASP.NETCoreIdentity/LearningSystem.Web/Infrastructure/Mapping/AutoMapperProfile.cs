@@ -11,6 +11,9 @@
     {
         public AutoMapperProfile()
         {
+            this.CreateMap<User, UsersListingServiceModel>()
+                .ForMember(u => u.Courses, cfg => cfg.MapFrom(c => c.Courses.Count));
+
             this.CreateMap<Course, CourseDetailsServiceModel>()
                 .ForMember(c => c.Trainer, cfg => cfg.MapFrom(c => c.Trainer.Name))
                 .ForMember(c => c.Students, cfg => cfg.MapFrom(c => c.Students.Count));

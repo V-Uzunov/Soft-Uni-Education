@@ -6,7 +6,9 @@
 
     public interface ICourseService
     {
-        Task<IEnumerable<CourseListingViewModel>> ActiveCoursesAsync();
+        Task<IEnumerable<CourseListingServiceModel>> ActiveCoursesAsync();
+
+        Task<IEnumerable<CourseListingServiceModel>> FindAsync(string search);
 
         Task<CourseDetailsServiceModel> Details(int id);
 
