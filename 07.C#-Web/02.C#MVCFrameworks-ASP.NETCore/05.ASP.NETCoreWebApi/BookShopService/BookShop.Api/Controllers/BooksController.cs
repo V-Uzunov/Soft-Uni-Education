@@ -65,6 +65,19 @@
             return Ok(book);
         }
 
+        [HttpDelete(WebConstants.WithId)]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var bookExits = await this.books.GetById(id);
+            if (bookExits == null)
+            {
+                return NotFound();
+            }
+
+            var bookId = await this.books.Delete(id);
+
+            return Ok(bookId);
+        }
 
         [HttpGet(WebConstants.WithId)]
         public async Task<IActionResult> Get(int id)

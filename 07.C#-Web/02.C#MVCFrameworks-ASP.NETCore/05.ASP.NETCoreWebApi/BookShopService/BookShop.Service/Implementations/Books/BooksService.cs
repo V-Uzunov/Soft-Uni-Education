@@ -80,6 +80,16 @@
             return book.Id;
         }
 
+        public async Task<int> Delete(int id)
+        {
+            var bookId = this.db.Books.Find(id);
+
+            this.db.Books.Remove(bookId);
+            await this.db.SaveChangesAsync();
+
+            return bookId.Id;
+        }
+
         public async Task<int> Edit(int id,
             string title,
             string description,
@@ -91,11 +101,7 @@
             decimal price)
         {
             var bookId = this.db.Books.Find(id);
-
-            if (bookId == null)
-            {
-               return 0;
-            }
+            
 
             bookId.Title = title;
             bookId.Description = description;
