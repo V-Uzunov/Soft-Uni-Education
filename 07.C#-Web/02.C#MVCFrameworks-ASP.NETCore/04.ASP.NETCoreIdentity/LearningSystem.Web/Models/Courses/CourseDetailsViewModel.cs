@@ -1,11 +1,11 @@
 ﻿namespace LearningSystem.Web.Models.Courses
 {
-    using LearningSystem.Service.Models.Course;
+    using Services.Models;
 
     public class CourseDetailsViewModel
     {
-        public CourseDetailsServiceModel Courses { get; set; }
+        public CourseDetailsServiceModel Course { get; set; }
 
-        public bool IsSignInCourse { get; set; }
+        public bool UserIsEnrolledCourse { get; set; }
     }
 }

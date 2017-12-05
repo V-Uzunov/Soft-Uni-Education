@@ -1,16 +1,16 @@
 ﻿namespace LearningSystem.Web
 {
     using AutoMapper;
-    using Infrastructure.Extensions;
     using Data;
     using Data.Models;
+    using Infrastructure.Extensions;
     using Microsoft.AspNetCore.Builder;
-    using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
-    using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
+    using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.AspNetCore.Mvc;
 
     public class Startup
     {
@@ -23,40 +23,30 @@
         
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<LearningSystemDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services
+                .AddDbContext<LearningSystemDbContext>(options => options
+                    .UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<User, IdentityRole>(options =>
+            services
+                .AddIdentity<User, IdentityRole>(options =>
                 {
                     options.Password.RequireDigit = false;
                     options.Password.RequireLowercase = false;
-                    options.Password.RequireNonAlphanumeric = false;
                     options.Password.RequireUppercase = false;
+                    options.Password.RequireNonAlphanumeric = false;
                 })
                 .AddEntityFrameworkStores<LearningSystemDbContext>()
                 .AddDefaultTokenProviders();
 
-            //services.AddAuthentication().AddFacebook(facebookOptions =>
-            //{
-            //    facebookOptions.AppId = "123456789";
-            //    facebookOptions.AppSecret = "123456789";
-            //});
-
-            //services.AddAuthentication().AddGoogle(googleOptions =>
-            //{
-            //    googleOptions.ClientId = "123456789";
-            //    googleOptions.ClientSecret = "123456789";
-            //});
+            services.AddAutoMapper();
 
             services.AddDomainServices();
 
-            services.AddAutoMapper();
-
-            services.AddRouting(option => option.LowercaseUrls = true);
-
-            services.AddMvc(option =>
+            services.AddRouting(routing => routing.LowercaseUrls = true);
+            
+            services.AddMvc(options =>
             {
-                option.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
+                options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
             });
         }
         
@@ -72,25 +62,28 @@
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/home/error");
             }
 
             app.UseStaticFiles();
 
             app.UseAuthentication();
-
+            
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "profile",
                     template: "users/{username}",
-                    defaults: new { controller = "Users", action = "Profile" }
-                    );
+                    defaults: new { controller = "Users", action = "Profile" });
+
+                routes.MapRoute(
+                    name: "blog",
+                    template: "blog/articles/{id}/{title}",
+                    defaults: new { area = "Blog", controller = "Articles", action ="Details" });
 
                 routes.MapRoute(
                     name: "areas",
-                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-                );
+                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
                 routes.MapRoute(
                     name: "default",

@@ -1,33 +1,52 @@
 ﻿namespace LearningSystem.Web.Infrastructure.Mapping
 {
     using AutoMapper;
-    using LearningSystem.Data.Models;
-    using LearningSystem.Service.Models.Blog;
-    using LearningSystem.Service.Models.Course;
-    using LearningSystem.Service.Models.User;
+    using Common.Mapping;
+    using System;
     using System.Linq;
 
     public class AutoMapperProfile : Profile
     {
         public AutoMapperProfile()
         {
-            this.CreateMap<User, UsersListingServiceModel>()
-                .ForMember(u => u.Courses, cfg => cfg.MapFrom(c => c.Courses.Count));
+            var allTypes = AppDomain
+                .CurrentDomain
+                .GetAssemblies()
+                .Where(a => a.GetName().Name.Contains("LearningSystem"))
+                .SelectMany(a => a.GetTypes());
 
-            this.CreateMap<Course, CourseDetailsServiceModel>()
-                .ForMember(c => c.Trainer, cfg => cfg.MapFrom(c => c.Trainer.Name))
-                .ForMember(c => c.Students, cfg => cfg.MapFrom(c => c.Students.Count));
+            allTypes
+                .Where(t => t.IsClass && !t.IsAbstract && t
+                    .GetInterfaces()
+                    .Where(i => i.IsGenericType)
+                    .Select(i => i.GetGenericTypeDefinition())
+                    .Contains(typeof(IMapFrom<>)))
+                .Select(t => new
+                {
+                    Destination = t,
+                    Source = t
+                        .GetInterfaces()
+                        .Where(i => i.IsGenericType)
+                        .Select(i => new
+                        {
+                            Definition = i.GetGenericTypeDefinition(),
+                            Arguments = i.GetGenericArguments()
+                        })
+                        .Where(i => i.Definition == typeof(IMapFrom<>))
+                        .SelectMany(i => i.Arguments)
+                        .First(),
+                })
+                .ToList()
+                .ForEach(mapping => this.CreateMap(mapping.Source, mapping.Destination));
 
-            string studentId = null;
-            this.CreateMap<Course, UserProfileCourseServiceModel>()
-                .ForMember(p => p.Grade, cfg => cfg
-                .MapFrom(c => c.Students
-                .Where(s => s.StudentId == studentId)
-                .Select(s=> s.Grade)
-                .FirstOrDefault()));
-
-            this.CreateMap<User, UserProfileServiceModel>()
-                .ForMember(c => c.Courses, cfg => cfg.MapFrom(s => s.Courses.Select(c => c.Course)));
+            allTypes
+                .Where(t => t.IsClass
+                    && !t.IsAbstract
+                    && typeof(IHaveCustomMapping).IsAssignableFrom(t))
+                .Select(Activator.CreateInstance)
+                .Cast<IHaveCustomMapping>()
+                .ToList()
+                .ForEach(mapping => mapping.ConfigureMapping(this));
         }
     }
 }

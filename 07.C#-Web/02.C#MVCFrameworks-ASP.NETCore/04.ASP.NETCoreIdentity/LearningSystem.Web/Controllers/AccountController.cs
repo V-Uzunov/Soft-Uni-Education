@@ -1,16 +1,15 @@
 ﻿namespace LearningSystem.Web.Controllers
 {
-    using LearningSystem.Data.Models;
+    using Data.Models;
+    using Models.AccountViewModels;
     using Microsoft.AspNetCore.Authentication;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
-    using Models.AccountViewModels;
     using System;
     using System.Security.Claims;
     using System.Threading.Tasks;
-    using Models.AccountView;
 
     [Authorize]
     [Route("[controller]/[action]")]
@@ -216,10 +215,11 @@
                 var user = new User
                 {
                     UserName = model.Username,
+                    Email = model.Email,
                     Name = model.Name,
-                    Birthdate = model.Birthdate,
-                    Email = model.Email
+                    Birthdate = model.Birthdate
                 };
+
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

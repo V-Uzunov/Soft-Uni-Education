@@ -26,17 +26,9 @@
     margin: 15px;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-/* Hide captions */
-.carousel-caption {
-    display: none;
+.article-list li {
+    margin-bottom: 20px;
 }
-
-.article-list li{
-    margin-bottom: 25px;
-}
-
 
 .pagination li.disabled a {
     pointer-events: none;
@@ -46,8 +38,14 @@
     margin-top: 50px;
 }
 
-
-.img-responsive {
+.course-listings .img-responsive {
     height: 200px !important;
 }
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
 }

@@ -1,40 +1,45 @@
 ﻿namespace LearningSystem.Web.Controllers
 {
-    using LearningSystem.Web.Models;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
+    using Models;
+    using Models.Home;
+    using Services;
     using System.Diagnostics;
     using System.Threading.Tasks;
-    using LearningSystem.Web.Models.Home;
-    using Service.Interfaces.Course;
-    using LearningSystem.Service.Interfaces.User;
 
     public class HomeController : Controller
     {
         private readonly ICourseService courses;
         private readonly IUserService users;
 
-        public HomeController(ICourseService courses, IUserService users)
+        public HomeController(
+            ICourseService courses,
+            IUserService users)
         {
-            this.users = users;
             this.courses = courses;
+            this.users = users;
         }
 
         public async Task<IActionResult> Index()
-            => View(await this.courses.ActiveCoursesAsync());
-        
+            => View(new HomeIndexViewModel
+            {
+                Courses = await this.courses.ActiveAsync()
+            });
+
         public async Task<IActionResult> Search(SearchFormModel model)
         {
-            var viewModel = new SearchIndexViewModel
+            var viewModel = new SearchViewModel
             {
                 SearchText = model.SearchText
             };
 
-            if (model.IsSearchingInCourses)
+            if (model.SearchInCourses)
             {
                 viewModel.Courses = await this.courses.FindAsync(model.SearchText);
             }
 
-            if (model.IsSearchingInUsers)
+            if (model.SearchInUsers)
             {
                 viewModel.Users = await this.users.FindAsync(model.SearchText);
             }
@@ -43,8 +48,9 @@
         }
 
         public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+            => View(new ErrorViewModel
+            {
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+            });
     }
 }

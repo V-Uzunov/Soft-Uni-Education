@@ -1,9 +1,9 @@
 ﻿namespace LearningSystem.Web.Infrastructure.Extensions
 {
+    using Microsoft.Extensions.DependencyInjection;
+    using Services;
     using System.Linq;
     using System.Reflection;
-    using Microsoft.Extensions.DependencyInjection;
-    using Service;
 
     public static class ServiceCollectionExtensions
     {
