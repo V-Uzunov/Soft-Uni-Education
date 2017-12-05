@@ -52,17 +52,17 @@
                 return NotFound();
             }
 
-            var book =await this.books.Edit(id,
-                                           model.Title,
-                                           model.Description,
-                                           model.AgeRestriction,
-                                           model.Copies,
-                                           model.Edition,
-                                           model.AuthorId,
-                                           model.ReleaseDate,
-                                           model.Price);
+            await this.books.Edit(id,
+                                    model.Title,
+                                    model.Description,
+                                    model.AgeRestriction,
+                                    model.Copies,
+                                    model.Edition,
+                                    model.AuthorId,
+                                    model.ReleaseDate,
+                                    model.Price);
 
-            return Ok(book);
+            return Ok(id);
         }
 
         [HttpDelete(WebConstants.WithId)]

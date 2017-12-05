@@ -90,7 +90,7 @@
             return bookId.Id;
         }
 
-        public async Task<int> Edit(int id,
+        public async Task Edit(int id,
             string title,
             string description,
             int? ageRestriction,
@@ -101,7 +101,11 @@
             decimal price)
         {
             var bookId = this.db.Books.Find(id);
-            
+
+            if (bookId == null)
+            {
+                return;
+            }
 
             bookId.Title = title;
             bookId.Description = description;
@@ -113,7 +117,6 @@
             bookId.Price = price;
 
             await this.db.SaveChangesAsync();
-            return bookId.Id;
         }
 
         public async Task<BooksByIdDetailsServiceMode> GetById(int id)
