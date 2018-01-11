@@ -1,2 +1,2 @@
 # Soft-Uni-Education
-Software University Homework And Exercises
+:mortar_board: Software University Homework And Exercises
