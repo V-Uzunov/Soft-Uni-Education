@@ -1,7 +1,7 @@
 function aggregateTable(array) {
     let towns = [];
     let sum = 0;
-
+    
     for (let i = 0; i < array.length; i++) {
         let tokens = array[i].split('|').filter(a => a !== '');
         towns.push(tokens[0].trim());
