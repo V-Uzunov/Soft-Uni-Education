@@ -1,4 +1,4 @@
-let createCalculator = require('../06.UnitTestingWithMocha/07.AddSubtract').createCalculator;
+let createCalculator = require('../07.AddSubtract').createCalculator;
 let expect = require('chai').expect;
 
 describe("Calculator tests", function () {

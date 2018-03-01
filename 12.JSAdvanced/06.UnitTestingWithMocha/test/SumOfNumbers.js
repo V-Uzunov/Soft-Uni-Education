@@ -1,4 +1,4 @@
-let sum = require('../06.UnitTestingWithMocha/04.SumOfNumbers').sum;
+let sum = require('../04.SumOfNumbers').sum;
 let expect = require('chai').expect;
 
 describe('sum(arr) - sum array of numbers', function() {

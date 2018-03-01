@@ -1,5 +1,5 @@
 let expect = require("chai").expect;
-let isSymmetric = require('../06.UnitTestingWithMocha/05.CheckForSymmetry').isSymmetric;
+let isSymmetric = require('../05.CheckForSymmetry').isSymmetric;
 
 describe("isSymmetric(arr) check if array is symmetric", function () {
     it("Should not be an array", function () {

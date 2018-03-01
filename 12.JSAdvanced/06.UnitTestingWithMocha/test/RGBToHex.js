@@ -1,4 +1,4 @@
-let rgbToHexColor = require('../06.UnitTestingWithMocha/06.RGBToHex').rgbToHexColor;
+let rgbToHexColor = require('../06.RGBToHex').rgbToHexColor;
 let expect = require("chai").expect;
 
 describe('RgbToHex(red, green, blue)', function () {
