@@ -2,7 +2,7 @@ function solve() {
     class Figure{
         constructor(){
             if (new.target === Figure) {
-                throw new TypeError('Cannot make instanc of abstract class Figure!');
+                throw new TypeError('Cannot make instance of abstract class Figure!');
               }
         }
         toString(){
